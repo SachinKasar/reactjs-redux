@@ -1,8 +1,8 @@
 import React from "react";
 import {render} from "react-dom";
 import {connect} from "react-redux";
-import {TwoWheel} from "./TwoWheel";
-import {FourWheel} from "./FourWheel";
+import {TwoWheeler} from "./TwoWheeler";
+import {FourWheeler} from "./FourWheeler";
 
 class App extends React.Component {
     render() {
@@ -10,11 +10,11 @@ class App extends React.Component {
 		var fourWheelSpecs = {manufacturer : "Maruti Suzuki"};
 		
         return ( 
-			<div>
+			<div style={{border: '5px solid grey'}}>
 				 <div className="container">
 					<div className="row">
 						<div className="row">
-							<TwoWheel name="Enfield Classic" 
+							<TwoWheeler name="Enfield Classic" 
 									  specs={twoWheelSpecs} 
 									  price="0" 
 									  changeVisitor={() => this.props.setVisitorName("New Visitor")} 
@@ -22,11 +22,11 @@ class App extends React.Component {
 						</div>
 					</div>
 				  </div>
-			  
+			  <hr/>
 				  <div className="container">
 					<div className="row">
 						<div className="row">
-							<FourWheel 
+							<FourWheeler 
 								name="Grand Vitara" 
 								specs={fourWheelSpecs} 
 								visitor={this.props.visitorProp.visitorName}
