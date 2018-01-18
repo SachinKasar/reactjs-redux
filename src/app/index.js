@@ -43,9 +43,7 @@ const store = createStore(
 	applyMiddleware(newLogger) // logger()
 	);
 
-store.subscribe(() => {
-	// console.log("Store state - ", store.getState());
-});
+ 
 
 render(
 	<Provider store={store}>
