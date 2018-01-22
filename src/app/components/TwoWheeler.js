@@ -1,8 +1,8 @@
 import React from "react";
 import {render} from "react-dom";
-
+import {connect} from "react-redux";
 // TwoWheel as a Class Component
-export class TwoWheeler extends React.Component {
+class TwoWheeler extends React.Component {
 	constructor(props) {
 		super();
 	    this.price = props.price;
@@ -31,12 +31,39 @@ export class TwoWheeler extends React.Component {
 							<li>
 								<b>Price :</b> {this.price}
 							</li>
+            
+            <li>
+								<b>VISITOR :</b> {this.props.visitorProp.visitorName}
+							</li>
+            
 							 
 						</ul>
-						<button onClick={() => this.props.changeVisitor('New Visitor')} className="btn btn-primary" >New Visitor</button>
+						<button onClick={() => this.props.setVisitorNameFromChild("New Visitor")} className="btn btn-primary" >New Visitor</button>
 					</div>
 				 
       
         );
     } 
 }
+
+
+
+const mapStateToProps = (state) => {
+	return {
+		visitorProp : state.visitorReducer
+		
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setVisitorNameFromChild: (name) => {
+			dispatch({
+				type: "ADD_VISITOR",
+				payload: name
+			});
+		}
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TwoWheeler);

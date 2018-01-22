@@ -1,7 +1,7 @@
 import React from "react";
 import {render} from "react-dom";
 import {connect} from "react-redux";
-import {TwoWheeler} from "./TwoWheeler";
+import TwoWheeler from "./TwoWheeler";
 import {FourWheeler} from "./FourWheeler";
 
 class App extends React.Component {
@@ -12,13 +12,14 @@ class App extends React.Component {
         return ( 
 			<div className="container">
                 <div className="row col-xs-10 col-xs-offset-1 alert alert-success">
-				    <br/>   
+				 VISITOR : {this.props.visitorProp.visitorName}
+                <br/>   
                     <div className="row">
                       <div className="col-xs-10 col-xs-offset-1" >
 							<TwoWheeler name="Enfield Classic" 
 									  specs={twoWheelSpecs} 
 									  price="0" 
-									  changeVisitor={() => this.props.setVisitorName("New Visitor")} 
+									  
 									  discount={this.props.discoutProp.discout}/>
 					</div>
 					</div> <br/>
